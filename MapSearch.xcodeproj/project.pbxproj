@@ -21,6 +21,9 @@
 		26C7419F1937AA7D00BE1A15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26C741811937AA7C00BE1A15 /* UIKit.framework */; };
 		26C741A71937AA7D00BE1A15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26C741A51937AA7D00BE1A15 /* InfoPlist.strings */; };
 		26C741A91937AA7D00BE1A15 /* MapSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C741A81937AA7D00BE1A15 /* MapSearchTests.m */; };
+		26F283631937AD1600AC2FE7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F283621937AD1600AC2FE7 /* CoreLocation.framework */; };
+		26F283651937AD1D00AC2FE7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F283641937AD1D00AC2FE7 /* MapKit.framework */; };
+		26F283681937ADC900AC2FE7 /* SearchObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F283671937ADC900AC2FE7 /* SearchObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,10 @@
 		26C741A41937AA7D00BE1A15 /* MapSearchTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MapSearchTests-Info.plist"; sourceTree = "<group>"; };
 		26C741A61937AA7D00BE1A15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		26C741A81937AA7D00BE1A15 /* MapSearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapSearchTests.m; sourceTree = "<group>"; };
+		26F283621937AD1600AC2FE7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		26F283641937AD1D00AC2FE7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		26F283661937ADC900AC2FE7 /* SearchObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchObject.h; sourceTree = "<group>"; };
+		26F283671937ADC900AC2FE7 /* SearchObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26F283651937AD1D00AC2FE7 /* MapKit.framework in Frameworks */,
+				26F283631937AD1600AC2FE7 /* CoreLocation.framework in Frameworks */,
 				26C741801937AA7C00BE1A15 /* CoreGraphics.framework in Frameworks */,
 				26C741821937AA7C00BE1A15 /* UIKit.framework in Frameworks */,
 				26C7417E1937AA7C00BE1A15 /* Foundation.framework in Frameworks */,
@@ -101,6 +110,8 @@
 		26C7417C1937AA7C00BE1A15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26F283641937AD1D00AC2FE7 /* MapKit.framework */,
+				26F283621937AD1600AC2FE7 /* CoreLocation.framework */,
 				26C7417D1937AA7C00BE1A15 /* Foundation.framework */,
 				26C7417F1937AA7C00BE1A15 /* CoreGraphics.framework */,
 				26C741811937AA7C00BE1A15 /* UIKit.framework */,
@@ -112,11 +123,13 @@
 		26C741831937AA7C00BE1A15 /* MapSearch */ = {
 			isa = PBXGroup;
 			children = (
-				26C7418C1937AA7C00BE1A15 /* AppDelegate.h */,
-				26C7418D1937AA7C00BE1A15 /* AppDelegate.m */,
 				26C7418F1937AA7D00BE1A15 /* Main.storyboard */,
+				26F283661937ADC900AC2FE7 /* SearchObject.h */,
+				26F283671937ADC900AC2FE7 /* SearchObject.m */,
 				26C741921937AA7D00BE1A15 /* ViewController.h */,
 				26C741931937AA7D00BE1A15 /* ViewController.m */,
+				26C7418C1937AA7C00BE1A15 /* AppDelegate.h */,
+				26C7418D1937AA7C00BE1A15 /* AppDelegate.m */,
 				26C741951937AA7D00BE1A15 /* Images.xcassets */,
 				26C741841937AA7C00BE1A15 /* Supporting Files */,
 			);
@@ -251,6 +264,7 @@
 			files = (
 				26C741941937AA7D00BE1A15 /* ViewController.m in Sources */,
 				26C7418E1937AA7C00BE1A15 /* AppDelegate.m in Sources */,
+				26F283681937ADC900AC2FE7 /* SearchObject.m in Sources */,
 				26C7418A1937AA7C00BE1A15 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +470,7 @@
 				26C741AE1937AA7D00BE1A15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26C741AF1937AA7D00BE1A15 /* Build configuration list for PBXNativeTarget "MapSearchTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +479,7 @@
 				26C741B11937AA7D00BE1A15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
