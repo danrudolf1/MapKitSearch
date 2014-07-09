@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UITextField *searchText;
 @property (weak, nonatomic) IBOutlet UITableView *tableViewOutlet;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipe;
+@property CLLocationCoordinate2D current;
 
 @end
 
@@ -26,24 +28,31 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.searchResults = [NSMutableArray new];
-    [self.myLocation startUpdatingLocation];
     self.myLocation = [[CLLocationManager alloc] init];
     self.myLocation.delegate = self;
+    [self.myLocation startUpdatingLocation];
+    self.mapView.delegate = self;
 
-    
+}
+
+- (void)setMapViewRegion{
+    MKCoordinateRegion currentRegion = MKCoordinateRegionMakeWithDistance(self.current, 2000, 2000);
+    [self.mapView setRegion:currentRegion animated:YES];
 
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
-    NSLog(@"Error set your location on the shit simulator");
+    NSLog(@"Error set your location on the simulator");
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     for (CLLocation *location in locations) {
         
         if (location.horizontalAccuracy < 100 && location.verticalAccuracy < 100) {
-            [self performSearch:location];
             [self.myLocation stopUpdatingLocation];
+            self.current = location.coordinate;
+            [self setMapViewRegion];
+            [self performSearch:location];
             break;
         }
     }
@@ -66,32 +75,32 @@
         }
         
         [self.searchResults sortUsingSelector:@selector(compare:)];
-        
         [self.tableViewOutlet reloadData];
     }];
 
 }
 
+#pragma mark TextField Delegate
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self.myLocation startUpdatingLocation];
     [textField resignFirstResponder];
+    
     return YES;
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
             [self.searchResults removeAllObjects];
     NSLog(@"%@",self.searchResults);
+    
     return YES;
 }
 
-
-
-#pragma TableviewData/Delegate
+#pragma mark TableviewData/Delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     return self.searchResults.count;
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
